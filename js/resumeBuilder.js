@@ -24,7 +24,7 @@ var bio = {
   displayContacts: function(selector) {
     var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace(/%data%/gi, bio.contacts.email);
-    var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
+    var formattedGithub = HTMLgithub.replace(/%data%/gi, bio.contacts.github);
     var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 
     $(selector).append(formattedMobile);

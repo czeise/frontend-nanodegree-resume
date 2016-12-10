@@ -24,7 +24,7 @@ var HTMLemail =
 var HTMLtwitter =
   '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub =
-  '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
+  '<li class="flex-item"><span class="orange-text">github</span><span class="white-text"><a href="https://github.com/%data%" target="_blank">%data%</a></span></li>';
 var HTMLblog =
   '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation =
