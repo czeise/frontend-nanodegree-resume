@@ -61,48 +61,44 @@ var bio = {
 bio.display();
 
 var work = {
-  jobs: [
-    {
-      employer: 'Medicom Health Interactive',
-      title: 'Quality Assurance Manager',
-      location: 'Minneapolis, MN',
-      dates: 'November 2014 - Present',
-      description: 'As MHI grows, my QA Manager role has expanded. I am ' +
-        'responsible for QA policies and direction along with influencing ' +
-        'our content, creative, and development processes to maximize ' +
-        'efficiency while maintaining a high level of quality. I define our ' +
-        'test automation strategy and oversee its implementation. ' +
-        'Additionally, I manage our QA staff and testing schedule, and ' +
-        'oversee our launch process.'
-    },
-    {
-      employer: 'Medicom Health Interactive',
-      title: 'Technical Designer & Quality Assurance Manager',
-      location: 'Minneapolis, MN',
-      dates: 'November 2011 - November 2014',
-      description: 'I collaborate with the content team, the creative team ' +
-        'and the developers to develop a technical design to be implemented ' +
-        'by the developers.  This part of my job is like that of a Software ' +
-        'Architect for small scale projects.  The other part of my job is ' +
-        'managing our QA process.  With these two roles I find myself ' +
-        'involved with the development process from start to finish and ' +
-        'responsible for both the technical specifications of the program ' +
-        "and verifying that they've been met."
-    },
-    {
-      employer: 'General Dynamics',
-      title: 'Senior Software Engineer',
-      location: 'Bloomington, MN',
-      dates: 'May 2006 - November 2011',
-      description: 'I worked on the Multi-INT Analysis and Archive System ' +
-        '(MAAS).  This system is a suite of software that takes the plethora ' +
-        'of data collected by unmanned aerial vehicles and turns it into ' +
-        'useful multimedia reports that can be utilized by the decision ' +
-        'makers of the US military.  I was primarily responsible for adding ' +
-        'features and fixing issues with the program.  Additionally I ' +
-        'provided technical support to our user base.'
-    }
-  ],
+  jobs: [{
+    employer: 'Medicom Health Interactive',
+    title: 'Quality Assurance Manager',
+    location: 'Minneapolis, MN',
+    dates: 'November 2014 - Present',
+    description: 'As MHI grows, my QA Manager role has expanded. I am ' +
+      'responsible for QA policies and direction along with influencing ' +
+      'our content, creative, and development processes to maximize ' +
+      'efficiency while maintaining a high level of quality. I define our ' +
+      'test automation strategy and oversee its implementation. ' +
+      'Additionally, I manage our QA staff and testing schedule, and ' +
+      'oversee our launch process.'
+  }, {
+    employer: 'Medicom Health Interactive',
+    title: 'Technical Designer & Quality Assurance Manager',
+    location: 'Minneapolis, MN',
+    dates: 'November 2011 - November 2014',
+    description: 'I collaborate with the content team, the creative team ' +
+      'and the developers to develop a technical design to be implemented ' +
+      'by the developers.  This part of my job is like that of a Software ' +
+      'Architect for small scale projects.  The other part of my job is ' +
+      'managing our QA process.  With these two roles I find myself ' +
+      'involved with the development process from start to finish and ' +
+      'responsible for both the technical specifications of the program ' +
+      "and verifying that they've been met."
+  }, {
+    employer: 'General Dynamics',
+    title: 'Senior Software Engineer',
+    location: 'Bloomington, MN',
+    dates: 'May 2006 - November 2011',
+    description: 'I worked on the Multi-INT Analysis and Archive System ' +
+      '(MAAS).  This system is a suite of software that takes the plethora ' +
+      'of data collected by unmanned aerial vehicles and turns it into ' +
+      'useful multimedia reports that can be utilized by the decision ' +
+      'makers of the US military.  I was primarily responsible for adding ' +
+      'features and fixing issues with the program.  Additionally I ' +
+      'provided technical support to our user base.'
+  }],
   display: function() {
     work.jobs.forEach(function(job) {
       $('#workExperience').append(HTMLworkStart);
@@ -114,12 +110,14 @@ var work = {
       $('.work-entry:last').append(formattedEmployerTitle);
 
       var formattedWorkDates = HTMLworkDates.replace('%data%', job.dates);
-      var formattedWorkLocation = HTMLworkLocation.replace('%data%', job.location);
+      var formattedWorkLocation = HTMLworkLocation.replace('%data%',
+        job.location);
 
       $('.work-entry:last').append(formattedWorkDates);
       $('.work-entry:last').append(formattedWorkLocation);
 
-      var formattedWorkDescription = HTMLworkDescription.replace('%data%', job.description);
+      var formattedWorkDescription = HTMLworkDescription.replace(
+        '%data%', job.description);
 
       $('.work-entry:last').append(formattedWorkDescription);
     });
@@ -129,43 +127,42 @@ var work = {
 work.display();
 
 var projects = {
-  projects: [
-    {
-      title: 'Survivr',
-      dates: 'March 2016',
-      description: 'The Survivr project simulates a "Survivor" like game ' +
-        'with many contestants, tribes, and challenges. I used test driven ' +
-        'development to ensure that my project met all of the project ' +
-        'requirements. The colorization of the terminal text is handled by a ' +
-        '"Colorizr" gem that I created using metaprogramming to add ' +
-        'methods to the <code>String</code> class that change the displayed ' +
-        'color of text in the terminal. This project required a solid ' +
-        "understanding of object oriented design to complete. I used Ruby's " +
-        '"duck typing" ability to easily handle objects from different ' +
-        'classes that behaved the same at times.',
-      images: ['images/197x148.gif', 'images/197x148.gif']
-    },
-    {
-      title: 'Portfolio Site',
-      dates: 'October 2016',
-      description: '',
-      images: []
-    }
-  ],
+  projects: [{
+    title: 'Survivr',
+    dates: 'March 2016',
+    description: 'The Survivr project simulates a "Survivor" like game ' +
+      'with many contestants, tribes, and challenges. I used test driven ' +
+      'development to ensure that my project met all of the project ' +
+      'requirements. The colorization of the terminal text is handled by a ' +
+      '"Colorizr" gem that I created using metaprogramming to add ' +
+      'methods to the <code>String</code> class that change the displayed ' +
+      'color of text in the terminal. This project required a solid ' +
+      "understanding of object oriented design to complete. I used Ruby's " +
+      '"duck typing" ability to easily handle objects from different ' +
+      'classes that behaved the same at times.',
+    images: ['images/197x148.gif', 'images/197x148.gif']
+  }, {
+    title: 'Portfolio Site',
+    dates: 'October 2016',
+    description: '',
+    images: []
+  }],
   display: function() {
     projects.projects.forEach(function(project) {
       $('#projects').append(HTMLprojectStart);
 
       var formattedTitle = HTMLprojectTitle.replace('%data%', project.title);
       var formattedDates = HTMLprojectDates.replace('%data%', project.dates);
-      var formattedDescription = HTMLprojectDescription.replace('%data%', project.description);
+      var formattedDescription = HTMLprojectDescription.replace(
+        '%data%', project.description);
 
       $('.project-entry:last').append(formattedTitle);
       $('.project-entry:last').append(formattedDates);
       $('.project-entry:last').append(formattedDescription);
 
       project.images.forEach(function(image) {
-        var formattedImage = HTMLprojectImage.replace('%data%', image);
+        var formattedImage = HTMLprojectImage.replace('%data%',
+          image);
 
         $('.project-entry:last').append(formattedImage);
       });
@@ -176,40 +173,37 @@ var projects = {
 projects.display();
 
 var education = {
-  schools: [
-    {
-      name: 'University of Minnesota',
-      location: 'Twin Cities, MN',
-      degree: 'M.S.',
-      majors: ['Computer Science'],
-      dates: '2009',
-      url: 'https://www.cs.umn.edu/academics/graduate/ms-mcs'
-    },
-    {
-      name: 'Buena Vista University',
-      location: 'Storm Lake, IA',
-      degree: 'B.S.',
-      majors: ['Computer Science', 'Mathematics'],
-      dates: '2003',
-      url: 'http://www.bvu.edu/academics/science/computer-science/'
-    }
-  ],
-  onlineCourses: [
-    {
-      title: 'Ruby Programming Nanodegree',
-      school: 'Udacity',
-      dates: '2016',
-      url: 'https://www.udacity.com/'
-    }
-  ],
+  schools: [{
+    name: 'University of Minnesota',
+    location: 'Twin Cities, MN',
+    degree: 'M.S.',
+    majors: ['Computer Science'],
+    dates: '2009',
+    url: 'https://www.cs.umn.edu/academics/graduate/ms-mcs'
+  }, {
+    name: 'Buena Vista University',
+    location: 'Storm Lake, IA',
+    degree: 'B.S.',
+    majors: ['Computer Science', 'Mathematics'],
+    dates: '2003',
+    url: 'http://www.bvu.edu/academics/science/computer-science/'
+  }],
+  onlineCourses: [{
+    title: 'Ruby Programming Nanodegree',
+    school: 'Udacity',
+    dates: '2016',
+    url: 'https://www.udacity.com/'
+  }],
   display: function() {
     education.schools.forEach(function(school) {
       $('#education').append(HTMLschoolStart);
 
       var formattedName = HTMLschoolName.replace('%data%', school.name);
       var formattedDegree = HTMLschoolDegree.replace('%data%', school.degree);
-      var formattedGraduationYear = HTMLschoolDates.replace('%data%', school.dates);
-      var formattedLocation = HTMLschoolLocation.replace('%data%', school.location);
+      var formattedGraduationYear = HTMLschoolDates.replace('%data%',
+        school.dates);
+      var formattedLocation = HTMLschoolLocation.replace('%data%',
+        school.location);
 
       $('.education-entry:last').append(formattedName + formattedDegree);
       $('.education-entry:last').append(formattedGraduationYear);
@@ -217,8 +211,10 @@ var education = {
 
       if (school.majors.length > 1) {
         // Correct plurality for multiple majors
-        var htmlSchoolMajors = HTMLschoolMajor.replace('Major', 'Majors');
-        var formattedMajors = htmlSchoolMajors.replace('%data%', school.majors.join(', '));
+        var htmlSchoolMajors = HTMLschoolMajor.replace('Major',
+          'Majors');
+        var formattedMajors = htmlSchoolMajors.replace('%data%', school
+          .majors.join(', '));
         $('.education-entry:last').append(formattedMajors);
       } else if (school.majors.length > 0) {
         var formattedMajor = HTMLschoolMajor.replace('%data%', school.majors);
@@ -236,7 +232,8 @@ var education = {
       var formattedDates = HTMLonlineDates.replace('%data%', course.dates);
       var formattedURL = HTMLonlineURL.replace('%data%', course.url);
 
-      $('.education-entry:last').append(formattedTitle + formattedSchool);
+      $('.education-entry:last').append(formattedTitle +
+        formattedSchool);
       $('.education-entry:last').append(formattedDates);
       $('.education-entry:last').append(formattedURL);
     });
