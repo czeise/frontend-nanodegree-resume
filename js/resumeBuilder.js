@@ -8,11 +8,22 @@ var bio = {
     "location": "Minneapolis, MN"
   },
   "biopic": "images/gravatar.jpeg",
-  "welcomeMessage": "Hello!",
+  "welcomeMessage": "Welcome to my Online Resume, built as part of Udacity's Front-End Web Developer Nanodegree. This site was built using Javascript functions to inject data from Javascript objects into an HTML page. This is my first experience with Javascript and jQuery.",
   "skills": [
     "Software Engineering", "Object Oriented Design", "Ruby", "HTML", "CSS",
     "Javascript", "Git"
   ],
+  "displayContacts": function(selector) {
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+    $(selector).append(formattedMobile);
+    $(selector).append(formattedEmail);
+    $(selector).append(formattedGithub);
+    $(selector).append(formattedLocation);
+  },
   "display": function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -20,15 +31,11 @@ var bio = {
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedName);
 
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-    $("#topContacts").append(formattedEmail);
-    $("#topContacts").append(formattedGithub);
-    $("#topContacts").append(formattedLocation);
+    bio.displayContacts("#topContacts");
+
     $("#header").append(formattedPic);
     $("#header").append(formattedWelcomeMsg);
 
@@ -179,7 +186,21 @@ var education = {
         var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors.join(" & "));
         $(".education-entry:last").append(formattedMajor);
       }
+    });
 
+    $("#education").append(HTMLonlineClasses);
+
+    education.onlineCourses.forEach(function(course) {
+      $("#education").append(HTMLschoolStart);
+
+      var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
+      var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
+      var formattedDates = HTMLonlineDates.replace("%data%", course.dates);
+      var formattedURL = HTMLonlineURL.replace("%data%", course.url);
+
+      $(".education-entry:last").append(formattedTitle + formattedSchool);
+      $(".education-entry:last").append(formattedDates);
+      $(".education-entry:last").append(formattedURL);
     });
   }
 };
@@ -187,3 +208,5 @@ var education = {
 education.display();
 
 $("#mapDiv").append(googleMap);
+
+bio.displayContacts("#footerContacts");
