@@ -7,12 +7,12 @@ var bio = {
     "github": "czeise",
     "location": "Minneapolis, MN"
   },
-  "biopic": "images/gravatar.jpeg",
   "welcomeMessage": "Welcome to my Online Resume, built as part of Udacity's Front-End Web Developer Nanodegree. This site was built using Javascript functions to inject data from Javascript objects into an HTML page. This is my first experience with Javascript and jQuery.",
   "skills": [
     "Software Engineering", "Object Oriented Design", "Ruby", "HTML", "CSS",
     "Javascript", "Git"
   ],
+  "biopic": "images/gravatar.jpeg",
   "displayContacts": function(selector) {
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
@@ -179,11 +179,13 @@ var education = {
       $(".education-entry:last").append(formattedGraduationYear);
       $(".education-entry:last").append(formattedLocation);
 
-      if (school.majors.length > 0) {
-        // I'm joining my majors on " & " because I know I've got 2 at most in
-        // my data. I could have this behave differently based on the length
-        // of the array or something...but this is nice clean code :)
-        var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors.join(" & "));
+      if (school.majors.length > 1) {
+        // Correct plurality for multiple majors
+        htmlSchoolMajors = HTMLschoolMajor.replace("Major", "Majors");
+        var formattedMajors = htmlSchoolMajors.replace("%data%", school.majors.join(", "));
+        $(".education-entry:last").append(formattedMajors);
+      } else if (school.majors.length > 0) {
+        var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
         $(".education-entry:last").append(formattedMajor);
       }
     });
