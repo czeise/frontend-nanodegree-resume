@@ -12,8 +12,13 @@ var bio = {
     "Javascript functions to inject data from Javascript objects into an " +
     "HTML page. This is my first experience with Javascript and jQuery.",
   "skills": [
-    "Software Engineering", "Object Oriented Design", "Ruby", "HTML", "CSS",
-    "Javascript", "Git"
+    "Software Engineering",
+    "Object Oriented Design",
+    "Ruby",
+    "HTML",
+    "CSS",
+    "Javascript",
+    "Git"
   ],
   "biopic": "images/gravatar.jpeg",
   "displayContacts": function(selector) {
