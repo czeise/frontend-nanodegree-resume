@@ -7,7 +7,10 @@ var bio = {
     "github": "czeise",
     "location": "Minneapolis, MN"
   },
-  "welcomeMessage": "Welcome to my Online Resume, built as part of Udacity's Front-End Web Developer Nanodegree. This site was built using Javascript functions to inject data from Javascript objects into an HTML page. This is my first experience with Javascript and jQuery.",
+  "welcomeMessage": "Welcome to my Online Resume, built as part of Udacity's " +
+    "Front-End Web Developer Nanodegree. This site was built using " +
+    "Javascript functions to inject data from Javascript objects into an " +
+    "HTML page. This is my first experience with Javascript and jQuery.",
   "skills": [
     "Software Engineering", "Object Oriented Design", "Ruby", "HTML", "CSS",
     "Javascript", "Git"
@@ -59,21 +62,40 @@ var work = {
       "title": "Quality Assurance Manager",
       "location": "Minneapolis, MN",
       "dates": "November 2014 - Present",
-      "description": "As MHI grows, my QA Manager role has expanded. I am responsible for QA policies and direction along with influencing our content, creative, and development processes to maximize efficiency while maintaining a high level of quality. I define our test automation strategy and oversee its implementation. Additionally, I manage our QA staff and testing schedule, and oversee our launch process."
+      "description": "As MHI grows, my QA Manager role has expanded. I am " +
+        "responsible for QA policies and direction along with influencing " +
+        "our content, creative, and development processes to maximize " +
+        "efficiency while maintaining a high level of quality. I define our " +
+        "test automation strategy and oversee its implementation. " +
+        "Additionally, I manage our QA staff and testing schedule, and " +
+        "oversee our launch process."
     },
     {
       "employer": "Medicom Health Interactive",
       "title": "Technical Designer & Quality Assurance Manager",
       "location": "Minneapolis, MN",
       "dates": "November 2011 - November 2014",
-      "description": "I collaborate with the content team, the creative team and the developers to develop a technical design to be implemented by the developers.  This part of my job is like that of a Software Architect for small scale projects.  The other part of my job is managing our QA process.  With these two roles I find myself involved with the development process from start to finish and responsible for both the technical specifications of the program and verifying that they've been met."
+      "description": "I collaborate with the content team, the creative team " +
+        "and the developers to develop a technical design to be implemented " +
+        "by the developers.  This part of my job is like that of a Software " +
+        "Architect for small scale projects.  The other part of my job is " +
+        "managing our QA process.  With these two roles I find myself " +
+        "involved with the development process from start to finish and " +
+        "responsible for both the technical specifications of the program " +
+        "and verifying that they've been met."
     },
     {
       "employer": "General Dynamics",
       "title": "Senior Software Engineer",
       "location": "Bloomington, MN",
       "dates": "May 2006 - November 2011",
-      "description": "I worked on the Multi-INT Analysis and Archive System (MAAS).  This system is a suite of software that takes the plethora of data collected by unmanned aerial vehicles and turns it into useful multimedia reports that can be utilized by the decision makers of the US military.  I was primarily responsible for adding features and fixing issues with the program.  Additionally I provided technical support to our user base."
+      "description": "I worked on the Multi-INT Analysis and Archive System " +
+        "(MAAS).  This system is a suite of software that takes the plethora " +
+        "of data collected by unmanned aerial vehicles and turns it into " +
+        "useful multimedia reports that can be utilized by the decision " +
+        "makers of the US military.  I was primarily responsible for adding " +
+        "features and fixing issues with the program.  Additionally I " +
+        "provided technical support to our user base."
     }
   ],
   "display": function() {
@@ -106,7 +128,16 @@ var projects = {
     {
       "title": "Survivr",
       "dates": "March 2016",
-      "description": "The Survivr project simulates a \"Survivor\" like game with many contestants, tribes, and challenges. I used test driven development to ensure that my project met all of the project requirements. The colorization of the terminal text is handled by a \"Colorizr\" gem that I created using metaprogramming to add methods to the <code>String</code> class that change the displayed color of text in the terminal. This project required a solid understanding of object oriented design to complete. I used Ruby's \"duck typing\" ability to easily handle objects from different classes that behaved the same at times.",
+      "description": "The Survivr project simulates a \"Survivor\" like game " +
+        "with many contestants, tribes, and challenges. I used test driven " +
+        "development to ensure that my project met all of the project " +
+        "requirements. The colorization of the terminal text is handled by a " +
+        "\"Colorizr\" gem that I created using metaprogramming to add " +
+        "methods to the <code>String</code> class that change the displayed " +
+        "color of text in the terminal. This project required a solid " +
+        "understanding of object oriented design to complete. I used Ruby's " +
+        "\"duck typing\" ability to easily handle objects from different " +
+        "classes that behaved the same at times.",
       "images": ["images/197x148.gif", "images/197x148.gif"]
     },
     {
@@ -181,7 +212,7 @@ var education = {
 
       if (school.majors.length > 1) {
         // Correct plurality for multiple majors
-        htmlSchoolMajors = HTMLschoolMajor.replace("Major", "Majors");
+        var htmlSchoolMajors = HTMLschoolMajor.replace("Major", "Majors");
         var formattedMajors = htmlSchoolMajors.replace("%data%", school.majors.join(", "));
         $(".education-entry:last").append(formattedMajors);
       } else if (school.majors.length > 0) {
