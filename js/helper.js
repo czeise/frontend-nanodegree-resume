@@ -123,6 +123,11 @@ function initializeMap() {
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
+  // Added clustering on the map to group closely located pins
+  var markerCluster = new MarkerClusterer(map, [], {
+    imagePath: 'js/markerclusterer/m'
+  });
+
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -141,7 +146,9 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school) {
-      locations.push(school.location);
+      // Added name in for the text search to provide a better location on the
+      // map
+      locations.push(school.name + school.location);
     });
 
     // iterates through work locations and appends each location to
@@ -149,7 +156,13 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.jobs.forEach(function(job) {
-      locations.push(job.location);
+      // Check for duplicates to avoid adding a location for a new position
+      // with the same employer
+      if (locations.includes(job.employer + job.location) === false) {
+        // Added employer in for the text search to provide a better location on
+        // the map
+        locations.push(job.employer + job.location);
+      }
     });
 
     return locations;
@@ -165,7 +178,10 @@ function initializeMap() {
     // The next lines save location data from the search result object to local variables
     var lat = placeData.geometry.location.lat(); // latitude from the place service
     var lon = placeData.geometry.location.lng(); // longitude from the place service
-    var name = placeData.formatted_address; // name of the place from the place service
+
+    // Using name instead of address as it seems to give better info for the map
+    // marker
+    var name = placeData.name; // name of the place from the place service
     var bounds = window.mapBounds; // current boundaries of the map window
 
     // marker is an object with additional data about the pin for a single location
@@ -174,6 +190,8 @@ function initializeMap() {
       position: placeData.geometry.location,
       title: name
     });
+
+    markerCluster.addMarker(marker);
 
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
