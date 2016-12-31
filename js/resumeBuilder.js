@@ -149,7 +149,10 @@ var projects = {
   }, {
     title: 'Portfolio Site',
     dates: 'October 2016',
-    description: 'Provided a design mockup as a PDF-file, I replicated the design in HTML and CSS. I developed a responsive website that displayed images, descriptions and links to each of the Front-End Web Developer Nanodegree projects.',
+    description: 'Provided a design mockup as a PDF-file, I replicated the ' +
+      'design in HTML and CSS. I developed a responsive website that ' +
+      'displayed images, descriptions and links to each of the Front-End Web ' +
+      'Developer Nanodegree projects.',
     images: ['images/portfolio.png']
   }],
   display: function() {
