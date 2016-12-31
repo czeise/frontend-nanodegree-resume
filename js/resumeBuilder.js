@@ -2,6 +2,7 @@ var bio = {
   name: 'Craig Zeise',
   role: 'Software Engineer',
   contacts: {
+    // mobile is required so I'm leaving it in, but using a generic number
     mobile: '555-555-5555',
     email: 'craig.zeise@gmail.com',
     github: 'czeise',
@@ -52,7 +53,7 @@ var bio = {
 
       bio.skills.forEach(function(skill) {
         var formattedSkill = HTMLskills.replace('%data%', skill);
-        $('#header').append(formattedSkill);
+        $('#skills').append(formattedSkill);
       });
     }
   }
@@ -72,7 +73,8 @@ var work = {
       'efficiency while maintaining a high level of quality. I define our ' +
       'test automation strategy and oversee its implementation. ' +
       'Additionally, I manage our QA staff and testing schedule, and ' +
-      'oversee our launch process.'
+      'oversee our launch process.',
+    url: 'http://www.medicomhealth.com'
   }, {
     employer: 'Medicom Health Interactive',
     title: 'Technical Designer & Quality Assurance Manager',
@@ -85,7 +87,8 @@ var work = {
       'managing our QA process.  With these two roles I find myself ' +
       'involved with the development process from start to finish and ' +
       'responsible for both the technical specifications of the program ' +
-      "and verifying that they've been met."
+      "and verifying that they've been met.",
+    url: 'http://www.medicomhealth.com'
   }, {
     employer: 'General Dynamics',
     title: 'Senior Software Engineer',
@@ -97,13 +100,15 @@ var work = {
       'useful multimedia reports that can be utilized by the decision ' +
       'makers of the US military.  I was primarily responsible for adding ' +
       'features and fixing issues with the program.  Additionally I ' +
-      'provided technical support to our user base.'
+      'provided technical support to our user base.',
+    url: 'http://www.generaldynamics.com/'
   }],
   display: function() {
     work.jobs.forEach(function(job) {
       $('#workExperience').append(HTMLworkStart);
 
       var formattedEmployer = HTMLworkEmployer.replace('%data%', job.employer);
+      formattedEmployer = formattedEmployer.replace('#', job.url);
       var formattedTitle = HTMLworkTitle.replace('%data%', job.title);
       var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
@@ -189,6 +194,11 @@ var education = {
     url: 'http://www.bvu.edu/academics/science/computer-science/'
   }],
   onlineCourses: [{
+    title: 'Front-End Web Developer Nanodegree',
+    school: 'Udacity',
+    dates: '2017',
+    url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+  }, {
     title: 'Ruby Programming Nanodegree',
     school: 'Udacity',
     dates: '2016',
@@ -199,6 +209,7 @@ var education = {
       $('#education').append(HTMLschoolStart);
 
       var formattedName = HTMLschoolName.replace('%data%', school.name);
+      formattedName = formattedName.replace('#', school.url);
       var formattedDegree = HTMLschoolDegree.replace('%data%', school.degree);
       var formattedGraduationYear = HTMLschoolDates.replace('%data%',
         school.dates);
@@ -228,14 +239,18 @@ var education = {
       $('#education').append(HTMLschoolStart);
 
       var formattedTitle = HTMLonlineTitle.replace('%data%', course.title);
+      formattedTitle = formattedTitle.replace('#', course.url);
       var formattedSchool = HTMLonlineSchool.replace('%data%', course.school);
       var formattedDates = HTMLonlineDates.replace('%data%', course.dates);
-      var formattedURL = HTMLonlineURL.replace('%data%', course.url);
+
+      // Not using the formattedURL, I think it looks better to have the url
+      // attached to the title
+      // var formattedURL = HTMLonlineURL.replace('%data%', course.url);
 
       $('.education-entry:last').append(formattedTitle +
         formattedSchool);
       $('.education-entry:last').append(formattedDates);
-      $('.education-entry:last').append(formattedURL);
+      // $('.education-entry:last').append(formattedURL);
     });
   }
 };
