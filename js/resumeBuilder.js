@@ -23,6 +23,7 @@ var bio = {
   ],
   biopic: 'images/gravatar.jpeg',
   displayContacts: function(selector) {
+    'use strict';
     var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace(/%data%/gi, bio.contacts.email);
     var formattedGithub = HTMLgithub.replace(/%data%/gi, bio.contacts.github);
@@ -34,6 +35,7 @@ var bio = {
     $(selector).append(formattedLocation);
   },
   display: function() {
+    'use strict';
     var formattedName = HTMLheaderName.replace('%data%', bio.name);
     var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
 
@@ -104,6 +106,7 @@ var work = {
     url: 'http://www.generaldynamics.com/'
   }],
   display: function() {
+    'use strict';
     work.jobs.forEach(function(job) {
       $('#workExperience').append(HTMLworkStart);
 
@@ -156,6 +159,7 @@ var projects = {
     images: ['images/portfolio.png']
   }],
   display: function() {
+    'use strict';
     projects.projects.forEach(function(project) {
       $('#projects').append(HTMLprojectStart);
 
@@ -208,6 +212,7 @@ var education = {
     url: 'https://www.udacity.com/'
   }],
   display: function() {
+    'use strict';
     education.schools.forEach(function(school) {
       $('#education').append(HTMLschoolStart);
 
